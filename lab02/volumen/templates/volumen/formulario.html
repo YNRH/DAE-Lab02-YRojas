@@ -1,0 +1,17 @@
+
+<h2>{{titulo}}</h2>
+{% if mensaje_error %}
+    <p style="color: red; font-size: 24px;">{{ mensaje_error }}</p>
+{% endif %}
+<form action="{% url 'volumen:calcular' %}" method="post">
+    {% csrf_token %}
+    <h3>CÁLCULO DEL VOLUMEN DE UN CILINDRO</h3>
+
+    <label for="diametro">Ingrese el diámetro en metros:</label>
+    <input type="number" name="diametro" id="diametro" step="0.01"><br><br>
+
+    <label for="altura">Ingrese la altura en metros:</label>
+    <input type="number" name="altura" id="altura" step="0.01"><br><br>
+
+    <input type="submit" name="submit" value="Calcular">
+</form>
